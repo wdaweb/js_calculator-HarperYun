@@ -1,0 +1,111 @@
+html {
+  height: 100vh;
+  background: linear-gradient(#1f193b 10%, #159 25%, #c6cacc 60%, #192d50 100%);
+  /* background: linear-gradient(#159 20%, #aec 60%, #145 100%); */
+  background-repeat: no-repeat;
+  /* 隱藏卷軸 */
+  overflow-y: hidden;
+}
+
+  /* 隱藏卷軸 */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* .box {
+  width: 50vw;
+  height: 50vh;
+  background: #edc;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */
+
+table {
+  width: 400px;
+  height: 600px;
+  border-radius: 26px;
+  background-color: rgba(0, 0, 0, .05);
+  /* 透明:transparent */
+  -webkit-box-reflect: below 30px -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(250, 250, 250, 0.2)));
+  /* background: none; */
+  border-spacing: 20px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* 毛玻璃特效 */
+  backdrop-filter: blur(10px);
+}
+
+.border-img {
+  /* 邊線純色+透明度，改成 0px 隱藏起來--------------- */
+  border: 0px solid rgba(136, 238, 204, .4);
+  opacity: 0.95;
+  box-shadow: 0px 0px 20px 2px rgba(237, 255, 255, 0.3);
+  /* 邊線漸層色，但虛線+圓角就無效---------------- */
+  /* border-image: linear-gradient(#aec, #159);
+  border-image-slice: 1; */
+}
+
+.border-img:hover {
+  transition-duration: .6s;
+  box-shadow: 0px 0px 35px 10px rgba(237, 255, 255, 0.5);
+}
+
+
+td {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  vertical-align: middle;
+  color: #edc;
+  font-size: 30px;
+  font-weight: bolder;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+#input {
+  width: 200px;
+  height: 60px;
+  border-radius: 10px;
+  background: rgba(16, 19, 65, 0.1);
+  text-align: right;
+  box-shadow: inset 0px 15px 20px 1px rgba(0, 0, 0, .3);
+}
+
+.num {
+  background: rgba(157, 189, 225, 0.3);
+  border-radius: 50px;
+  margin: 20px;
+  text-shadow: #c1dafa 0 0 5px;
+  box-shadow: 4px 4px 5px rgba(0, 24, 68, 0.4);
+  transition-duration: .6s;
+
+}
+
+.num:hover {
+  cursor: pointer;
+  transition: .4s;
+  transform: scale(1.08);
+  background: linear-gradient(#f6f6f6, #a2b3cf);
+  /* background: linear-gradient(#edc, #aec); */
+  color: #4e5575;
+  border: transparent;
+  box-shadow: 0px 0px 10px 3px rgba(232, 221, 255, 0.6);
+  
+}
+
+  /* :active是滑鼠點擊元素的狀態 */
+.num:active {
+  transition-duration: .2s;
+
+  color: #159;
+  transform: scale(0.95);
+  box-shadow: inset 0 0 10px 1px rgba(0, 0, 0, .3);
+  box-shadow:  
+    0px 0px 5px rgba(239, 255, 255, 0.9), 
+    0px 0px 10px rgba(212, 194, 255, 0.8); 
+}
+

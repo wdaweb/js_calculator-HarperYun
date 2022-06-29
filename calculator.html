@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=PT+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <title>Calculator</title>
+  
+</head>
+<body>
+  <div id="particles-js"></div>
+  <div class="box">
+    <table class="border-img">
+      <tr>
+        <td colspan="4" id='input'>0</td>
+      </tr>
+      <tr>
+        <td class="num">C</td>
+        <td class="num">/</td>
+        <td class="num">*</td>
+        <td class="num">-</td>
+      </tr>
+      <tr>
+        <td class="num">7</td>
+        <td class="num">8</td>
+        <td class="num">9</td>
+        <td class="num" rowspan="2">+</td>
+      </tr>
+      <tr>
+        <td class="num">4</td>
+        <td class="num">5</td>
+        <td class="num">6</td>
+      </tr>
+      <tr>
+        <td class="num">1</td>
+        <td class="num">2</td>
+        <td class="num">3</td>
+        <td class="num" rowspan="2">=</td>
+      </tr>
+      <tr>
+        <td class="num" colspan="2">0</td>
+        <td class="num">.</td>
+      </tr>
+    </table>
+  </div>
+
+  
+  <script src="./js/particles.min.js"></script>
+  <script src="./js/particles_app.js"></script>
+  
+
+  <script>
+    const input = document.getElementById('input')
+    const tds = document.querySelectorAll('td:not(#input)')
+
+    for (const td of tds) {
+      td.onclick = () => {
+        const text = td.innerText
+        if (text === '=') {
+          // 執行算式
+          input.innerText = eval(input.innerText)
+        } else if (text === 'C') {
+          // 重設
+          input.innerText = '0'
+        } else {
+          // 一般按鍵
+          if (input.innerText === '0') {
+            input.innerText = text
+          } else {
+            input.innerText += text
+          }
+        }
+      }
+    }
+
+    document.onkeydown = event => {
+      if (event.key === 'Enter') {
+        input.innerText = eval(input.innerText)
+      } else if (
+        !isNaN(parseInt(event.key)) ||
+        event.key === '+' ||
+        event.key === '-' ||
+        event.key === '*' ||
+        event.key === '/'
+      ) {
+        if (input.innerText === '0') {
+          input.innerText = event.key
+        } else {
+          input.innerText += event.key
+        }
+      }
+    }
+  </script>
+</body>
+</html>
